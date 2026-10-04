@@ -1,0 +1,21 @@
+using UnityEngine;
+
+public class BillboardUI : MonoBehaviour
+{
+    private Camera mainCamera;
+
+    private void Awake()
+    {
+        mainCamera = Camera.main;
+    }
+
+    private void LateUpdate()
+    {
+        if (mainCamera == null)
+        {
+            return;
+        }
+
+        transform.LookAt(transform.position + mainCamera.transform.forward);
+    }
+}
